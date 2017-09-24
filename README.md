@@ -1,57 +1,26 @@
-# Project Name
+---
+services: data-lake-analytics
+platforms: dotnet
+author: saveenr
+---
 
-(short, 1-3 sentenced, description of the project)
+# USQL/Cognitive Imaging Face Detection Hello World
 
-## Features
+```
+REFERENCE ASSEMBLY ImageCommon;
+REFERENCE ASSEMBLY FaceSdk;
+REFERENCE ASSEMBLY ImageEmotion;
+REFERENCE ASSEMBLY ImageTagging;
+REFERENCE ASSEMBLY ImageOcr;
 
-This project framework provides the following features:
+@faces_from_extractor =
+    EXTRACT FileName string, 
+        NumFaces int, 
+        FaceIndex int, 
+        RectX float, RectY float, Width float, Height float, 
+        FaceAge int, 
+        FaceGender string
+    FROM @"/usqlext/samples/cognition/{FileName}.jpg"
+    USING new Cognition.Vision.FaceDetectionExtractor();
+```
 
-* Feature 1
-* Feature 2
-* ...
-
-## Getting Started
-
-### Prerequisites
-
-(ideally very short, if any)
-
-- OS
-- Library version
-- ...
-
-### Installation
-
-(ideally very short)
-
-- npm install [package name]
-- mvn install
-- ...
-
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
-
-
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
-
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
