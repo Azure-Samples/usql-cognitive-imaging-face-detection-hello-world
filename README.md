@@ -4,7 +4,7 @@ platforms: dotnet
 author: saveenr
 ---
 
-# USQL/Cognitive Imaging Face Detection Hello World
+# U-SQL/Cognitive Imaging Face Detection Hello World
 
 ```
 REFERENCE ASSEMBLY ImageCommon;
